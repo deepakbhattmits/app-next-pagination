@@ -1,0 +1,21 @@
+{
+	"name": "Pagination",
+	"short_name": "app-next-pagination",
+	"lang": "en-US",
+	"start_url": "/",
+	"display": "standalone",
+	"theme_color": "#ff6600",
+	"background_color": "#f0f",
+	"icons": [
+		{
+			"src": "/images/favicon.png",
+			"sizes": "16x16",
+			"type": "image/png"
+		},
+		{
+			"src": "/images/favicon.ico",
+			"sizes": "32x32",
+			"type": "image/png"
+		}
+	]
+}
