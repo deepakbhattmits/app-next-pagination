@@ -5,22 +5,23 @@ import axios from 'axios';
 import { usePaginatedQuery, queryCache } from 'react-query';
 import { ReactQueryDevtools } from 'react-query-devtools';
 
-export default function App() {
+const App = () => {
 	return (
 		<>
 			<Example />
 		</>
 	);
-}
+};
+export default App;
 
-async function fetchProjects(_, page = 0) {
+const fetchProjects = async (_, page = 0) => {
 	const { data } = await axios.get('/api/projects', {
 		params: { page },
 	});
 	return data;
-}
+};
 
-function Example() {
+const Example = () => {
 	const [page, setPage] = React.useState(0);
 
 	const {
@@ -45,6 +46,13 @@ function Example() {
 				<a>
 					<h1>
 						Click here for <strong>useInfiniteQuery</strong> Example
+					</h1>
+				</a>
+			</Link>
+			<Link href='/posts'>
+				<a>
+					<h1>
+						Click here for <strong>useQuery</strong> Example
 					</h1>
 				</a>
 			</Link>
@@ -93,4 +101,4 @@ function Example() {
 			<ReactQueryDevtools initialIsOpen />
 		</div>
 	);
-}
+};
