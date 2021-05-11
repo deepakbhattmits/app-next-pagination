@@ -1,17 +1,16 @@
 /** @format */
-import Link from 'next/link';
-
-import { ReactQueryDevtools } from 'react-query-devtools';
-import axios from 'axios';
-import { useInfiniteQuery, queryCache } from 'react-query';
 import React from 'react';
+import Link from 'next/link';
+import axios from 'axios';
+import { useInfiniteQuery } from 'react-query';
+import { ReactQueryDevtools } from 'react-query-devtools';
 
-async function fetchPosts(_, page = 0) {
+const fetchPosts = async (_, page = 0) => {
 	const { data } = await axios.get('/api/posts', {
 		params: { page },
 	});
 	return data;
-}
+};
 const InfiniteQuery = () => {
 	const {
 		status,
@@ -53,7 +52,7 @@ const InfiniteQuery = () => {
 						className='ui button'
 						disabled={!canFetchMore}
 						onClick={() => fetchMore()}>
-						Fetch More
+						{canFetchMore ? 'Fetch More' : 'No More Data to fetch'}
 					</button>
 				</div>
 			)}
